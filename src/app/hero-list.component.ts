@@ -48,6 +48,6 @@ export class HeroListComponent implements OnInit {
 	}
 
 	onClose() {
-		this.selectedHero = false;
+		this.selectedHero = "";
 	}
 }

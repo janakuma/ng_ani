@@ -1,5 +1,12 @@
 <h1 style="text-align:center">{{ title }}!</h1>
-<app-hero-list></app-hero-list>
+
+<nav>
+	<a routerLink="/dashboard">DASHBOARD</a>
+	<a routerLink="/heroes">HEROES</a>
+</nav>
+
+<router-outlet></router-outlet>
+<!-- <app-hero-list></app-hero-list> -->
 <app-message></app-message>
 
 
