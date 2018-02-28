@@ -7,15 +7,13 @@ import { HeroService } from './hero.service';
   selector: 'app-hero-list',
   template: `
     <ul>
-      <li 
-      	*ngFor="let hero of heroes" [class.selected]="hero === selectedHero"
-      	(click)="onSelect(hero)"
-      >
-      	{{hero.id}} / {{hero.val}} / {{hero.etc}}
+      <li *ngFor="let hero of heroes">
+      	<a routerLink="/detail/{{hero.id}}">
+      		{{hero.id}}
+      	</a>
       </li>      
     </ul>        
-    <app-hero-detail [hero]="selectedHero"></app-hero-detail>
-    <button (click)="onClose()">CLOSE</button>
+    <!--<app-hero-detail [hero]="selectedHero"></app-hero-detail>-->    
   `,
   styles: [
   	`	
@@ -27,27 +25,17 @@ import { HeroService } from './hero.service';
 
 export class HeroListComponent implements OnInit {
 	// heroes = HEROES;
-	selectedHero: Hero;	
 	heroes: Hero[];
 
-	constructor(private heroService: HeroService) {
-
-	}
+	constructor(private heroService: HeroService) { }
 
 	ngOnInit() {
 		this.getHeroes();
-	}
-
-	onSelect(hero: Hero): void {
-		this.selectedHero = hero;
-	}
+	}	
 
 	getHeroes(): void {
 		this.heroService.getHeroes()
 			.subscribe(heroes => this.heroes = heroes);
-	}
-
-	onClose() {
-		this.selectedHero = "";
+		console.log(this.heroes)
 	}
 }

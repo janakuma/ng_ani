@@ -20,7 +20,9 @@ export class DashboardComponent implements OnInit {
 	getHeroes():void {
 		this.heroService.getHeroes()
 			.subscribe(
-				heroes => this.heroes = heroes.slice(1, 5)				
+				heroes => this.heroes = heroes
 			);		
+
+			//heroes.slice(1, 5)는 데이터를 1-4까지만 보여준
 	}
 }
