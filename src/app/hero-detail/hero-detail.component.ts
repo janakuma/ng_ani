@@ -2,32 +2,14 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Hero } from './hero';
-import { HeroService } from './hero.service';
+import { Hero } from '../hero';
+import { HeroService }  from '../hero.service';
 
 @Component({
-  selector: 'app-hero-detail',
-  template: `
-  	<dl *ngIf="hero">    
-  		<dt><strong>Detail</strong></dt>
-  		<dd>id: {{hero.id}}</dd>
-  		<dd>value: {{hero.val}}</dd>
-  		<dd>part: {{hero.part}}</dd>
-  		<dd>etc: {{hero.etc}}</dd>
-  	</dl>
-
-    <button (click)="goBack();">go back</button>
-  `,
-
-  styles: [
-  	`
-  		dl {border: 1px solid #333;}
-  		dt dt {font-size: 20px;}  	
-  	`
-  ]
-  
+	selector: 'app-hero-detail',
+	templateUrl: './hero-detail.component.html',
+	styleUrls: ['./hero-detail.component.css']
 })
-
 export class HeroDetailComponent implements OnInit {
   @Input() hero: Hero;
 

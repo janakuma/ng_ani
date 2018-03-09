@@ -1,4 +1,4 @@
-export class Hero  {
-	heroes: Hero[];
-	selectedHero: Hero;
+export class Hero {
+	id: number;
+	name: string;
 }
